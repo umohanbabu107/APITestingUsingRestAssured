@@ -74,7 +74,7 @@ public class PostRequests {
     @Test
     public void sendDataUsingExternalFile() throws FileNotFoundException {
         deleteStudentUsingId("4");
-        JSONObject data = createStudentDataUsingFIleName("student4.json");
+        JSONObject data = createStudentDataUsingFIleName("sampleJsons/student4.json");
 
         given()
                 .contentType("application/json")
@@ -92,7 +92,7 @@ public class PostRequests {
     }
     @Test
     public void createStudent5() throws FileNotFoundException {
-        JSONObject data = createStudentDataUsingFIleName("student5.json");
+        JSONObject data = createStudentDataUsingFIleName("sampleJsons/student5.json");
 
         given()
                 .contentType("application/json")
