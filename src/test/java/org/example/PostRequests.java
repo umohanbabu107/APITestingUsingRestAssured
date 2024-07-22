@@ -10,11 +10,10 @@ import java.io.FileReader;
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 
 public class PostRequests {
-    String url = "http://localhost:3000/students";
+    String url = "http://localhost:3001/students";
     // Send body using HashMap
     @Test
     public void sendDataUsingHashMap(){
@@ -108,7 +107,7 @@ public class PostRequests {
     }
 
     public void deleteStudentUsingId(String id){
-        when().delete("http://localhost:3000/students/"+id);
+        when().delete(url+id);
     }
     public JSONObject createStudentDataUsingFIleName(String fileName) throws FileNotFoundException {
         File file = new File("src/resources/"+fileName);

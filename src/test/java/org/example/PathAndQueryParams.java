@@ -3,11 +3,10 @@ package org.example;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 
 public class PathAndQueryParams {
-    String url = "http://localhost:3000/";
+    String url = "http://localhost:3001/";
     @Test
     public void pathAndQueryParamsTest(){
         given()

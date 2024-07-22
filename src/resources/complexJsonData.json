@@ -1,0 +1,31 @@
+{
+  "string": "Hello, World!",
+  "number": 123,
+  "float": 123.45,
+  "boolean": true,
+  "null_value": null,
+  "array": [1, 2, 3, "four", false, null],
+  "object": {
+    "nested_string": "Nested Hello",
+    "nested_number": 456,
+    "nested_boolean": false
+  },
+  "special_characters": "!@#$%^&*()_+",
+  "unicode_characters": "\u00A9\u00AE\u00B6",
+  "empty_string": "",
+  "empty_array": [],
+  "empty_object": {},
+  "complex_object": {
+    "list_of_objects": [
+      {"id": 1, "value": "First"},
+      {"id": 2, "value": "Second"}
+    ],
+    "list_of_arrays": [
+      [1, 2, 3],
+      ["a", "b", "c"]
+    ]
+  },
+  "boolean_string": "true",
+  "number_string": "123",
+  "datetime": "2024-07-19T18:30:00Z"
+}
