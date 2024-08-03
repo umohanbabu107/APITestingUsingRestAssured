@@ -80,7 +80,7 @@ public class PostRequests {
                 .contentType("application/json")
                 .body(data.toString())
                 .when()
-                .post(url)
+                .post(this.url)
                 .then()
                 .statusCode(201)
                 .body("id", equalTo(4))
@@ -92,27 +92,27 @@ public class PostRequests {
     }
     @Test
     public void createStudent5() throws FileNotFoundException {
-        JSONObject data = createStudentDataUsingFIleName("sampleJsons/student5.json");
+        final JSONObject data = this.createStudentDataUsingFIleName("sampleJsons/student5.json");
 
         given()
                 .contentType("application/json")
                 .body(data.toString())
                 .when()
-                .post(url);
+                .post(this.url);
 
     }
     //@Test
     public void deleteUser(){
-        deleteStudentUsingId("5");
+        this.deleteStudentUsingId("5");
     }
 
-    public void deleteStudentUsingId(String id){
-        when().delete(url+id);
+    public void deleteStudentUsingId(final String id){
+        when().delete(this.url+id);
     }
-    public JSONObject createStudentDataUsingFIleName(String fileName) throws FileNotFoundException {
-        File file = new File("src/resources/"+fileName);
-        FileReader fileReader = new FileReader(file);
-        JSONTokener jsonTokener = new JSONTokener(fileReader);
+    public JSONObject createStudentDataUsingFIleName(final String fileName) throws FileNotFoundException {
+        final File file = new File("src/resources/"+fileName);
+        final FileReader fileReader = new FileReader(file);
+        final JSONTokener jsonTokener = new JSONTokener(fileReader);
         return new JSONObject(jsonTokener);
     }
 }

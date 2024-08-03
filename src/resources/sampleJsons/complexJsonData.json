@@ -1,4 +1,4 @@
-{
+[{
   "string": "Hello, World!",
   "number": 123,
   "float": 123.45,
@@ -29,3 +29,4 @@
   "number_string": "123",
   "datetime": "2024-07-19T18:30:00Z"
 }
+]

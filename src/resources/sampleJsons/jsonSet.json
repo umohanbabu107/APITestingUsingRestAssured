@@ -1,0 +1,159 @@
+{
+  "data_sets": [
+    {
+      "string": "Hello, World!",
+      "number": 123,
+      "float": 123.45,
+      "boolean": true,
+      "null_value": null,
+      "array": [1, 2, 3, "four", false, null],
+      "object": {
+        "nested_string": "Nested Hello",
+        "nested_number": 456,
+        "nested_boolean": false
+      },
+      "special_characters": "!@#$%^&*()_+",
+      "unicode_characters": "\u00A9\u00AE\u00B6",
+      "empty_string": "",
+      "empty_array": [],
+      "empty_object": {},
+      "complex_object": {
+        "list_of_objects": [
+          {"id": 1, "value": "First"},
+          {"id": 2, "value": "Second"}
+        ],
+        "list_of_arrays": [
+          [1, 2, 3],
+          ["a", "b", "c"]
+        ]
+      },
+      "boolean_string": "true",
+      "number_string": "123",
+      "datetime": "2024-07-19T18:30:00Z"
+    },
+    {
+      "string": "Goodbye, World!",
+      "number": 456,
+      "float": 456.78,
+      "boolean": false,
+      "null_value": null,
+      "array": [4, 5, 6, "seven", true, null],
+      "object": {
+        "nested_string": "Nested Goodbye",
+        "nested_number": 789,
+        "nested_boolean": true
+      },
+      "special_characters": "#$%^&*()_+=-",
+      "unicode_characters": "\u2020\u2030\u20AC",
+      "empty_string": "",
+      "empty_array": [],
+      "empty_object": {},
+      "complex_object": {
+        "list_of_objects": [
+          {"id": 3, "value": "Third"},
+          {"id": 4, "value": "Fourth"}
+        ],
+        "list_of_arrays": [
+          [4, 5, 6],
+          ["d", "e", "f"]
+        ]
+      },
+      "boolean_string": "false",
+      "number_string": "456",
+      "datetime": "2024-08-01T12:00:00Z"
+    },
+    {
+      "string": "Greetings, Universe!",
+      "number": 789,
+      "float": 789.01,
+      "boolean": true,
+      "null_value": null,
+      "array": [7, 8, 9, "ten", false, null],
+      "object": {
+        "nested_string": "Nested Greetings",
+        "nested_number": 123,
+        "nested_boolean": false
+      },
+      "special_characters": "*()_+-={}|",
+      "unicode_characters": "\u2600\u2601\u2602",
+      "empty_string": "",
+      "empty_array": [],
+      "empty_object": {},
+      "complex_object": {
+        "list_of_objects": [
+          {"id": 5, "value": "Fifth"},
+          {"id": 6, "value": "Sixth"}
+        ],
+        "list_of_arrays": [
+          [7, 8, 9],
+          ["g", "h", "i"]
+        ]
+      },
+      "boolean_string": "true",
+      "number_string": "789",
+      "datetime": "2024-09-15T07:45:00Z"
+    },
+    {
+      "string": "Hello, Moon!",
+      "number": 101112,
+      "float": 101112.13,
+      "boolean": false,
+      "null_value": null,
+      "array": [10, 11, 12, "thirteen", true, null],
+      "object": {
+        "nested_string": "Nested Hello Moon",
+        "nested_number": 345,
+        "nested_boolean": true
+      },
+      "special_characters": "_+{}:\"<>?",
+      "unicode_characters": "\u2654\u2655\u2656",
+      "empty_string": "",
+      "empty_array": [],
+      "empty_object": {},
+      "complex_object": {
+        "list_of_objects": [
+          {"id": 7, "value": "Seventh"},
+          {"id": 8, "value": "Eighth"}
+        ],
+        "list_of_arrays": [
+          [10, 11, 12],
+          ["j", "k", "l"]
+        ]
+      },
+      "boolean_string": "false",
+      "number_string": "101112",
+      "datetime": "2024-10-10T15:30:00Z"
+    },
+    {
+      "string": "Goodnight, Stars!",
+      "number": 131415,
+      "float": 131415.16,
+      "boolean": true,
+      "null_value": null,
+      "array": [13, 14, 15, "sixteen", false, null],
+      "object": {
+        "nested_string": "Nested Goodnight",
+        "nested_number": 678,
+        "nested_boolean": false
+      },
+      "special_characters": "<>?/|\\~",
+      "unicode_characters": "\u2660\u2663\u2665",
+      "empty_string": "",
+      "empty_array": [],
+      "empty_object": {},
+      "complex_object": {
+        "list_of_objects": [
+          {"id": 9, "value": "Ninth"},
+          {"id": 10, "value": "Tenth"}
+        ],
+        "list_of_arrays": [
+          [13, 14, 15],
+          ["m", "n", "o"]
+        ]
+      },
+      "boolean_string": "true",
+      "number_string": "131415",
+      "datetime": "2024-11-20T22:15:00Z"
+    }
+  ]
+}

@@ -31,11 +31,11 @@ public class BookStoreAPITests {
                 .extract()
                 .response();
         JsonPath jsonPath = new JsonPath(booksAPIResponse.asString());
-        List<Map<String, Object>> booksData = jsonPath.getList("");
+        final List<Map<String, Object>> booksData = jsonPath.getList("");
         for(int i=0; i<booksData.size();i++){
             System.out.println(booksData.get(i).get("title"));
         }
-        List<String> booksTitles = booksData.stream()
+        final List<String> booksTitles = booksData.stream()
                 .map(book -> book.get("title").toString())
                 .collect(Collectors.toList());
         Assert.assertTrue(booksTitles.contains("To Kill a Mockingbird"));
@@ -47,14 +47,14 @@ public class BookStoreAPITests {
 
     @Test
     public void testPriceOfBook(){
-        Response response = when()
-                .get(url)
+        final Response response = when()
+                .get(this.url)
                 .then()
                 .statusCode(200)
                 .extract().response();
-        JsonPath jsonPath = new JsonPath(response.asString());
-        List<Map<String, Object>> booksData = jsonPath.getList("");
-        Map<String, String > booksPrices = booksData.stream().collect(Collectors.toMap(
+        final JsonPath jsonPath = new JsonPath(response.asString());
+        final List<Map<String, Object>> booksData = jsonPath.getList("");
+        final Map<String, String > booksPrices = booksData.stream().collect(Collectors.toMap(
                 book -> book.get("title").toString(),
                 book -> book.get("price").toString()));
         Assert.assertEquals(booksPrices.get("1984"),"8.99");
