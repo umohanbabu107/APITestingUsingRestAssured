@@ -63,4 +63,19 @@
       <version>4.4.0</version>
     </dependency>
   </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.3.1</version> <!-- Ensure this is the latest version -->
+        <configuration>
+          <!-- If your test classes are in a different directory -->
+          <includes>
+            <include>**/org.example/*.java</include>
+          </includes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

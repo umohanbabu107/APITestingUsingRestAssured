@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class JsonDataParsingUsingJsonPath {
+public class JsonDataParsingUsingJsonPathTests {
     @Test
     public void test1() throws IOException {
         final String jsonString = new String(Files.readAllBytes(Paths.get("src/resources/sampleJsons/complexJsonData.json")));

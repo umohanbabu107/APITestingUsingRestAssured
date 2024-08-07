@@ -5,11 +5,9 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
-import static org.hamcrest.Matchers.*;
 
 
-public class HttpRequests {
+public class HttpRequestsTests {
     int id;
     @Test(priority = 0)
     void createUser(){

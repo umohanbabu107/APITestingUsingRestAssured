@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-public class PathAndQueryParams {
+public class PathAndQueryParamsTests {
     String url = "http://localhost:3001/";
     @Test
     public void pathAndQueryParamsTest(){

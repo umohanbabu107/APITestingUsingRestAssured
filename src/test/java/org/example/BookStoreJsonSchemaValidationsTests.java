@@ -1,15 +1,13 @@
 package org.example;
 
-import io.restassured.RestAssured;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import org.testng.annotations.Test;
 
 import java.io.File;
 
 import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
 
-public class BookStoreJsonSchemaValidations {
+public class BookStoreJsonSchemaValidationsTests {
     @Test
     public void studentJsonSchemaValidation(){
         given()

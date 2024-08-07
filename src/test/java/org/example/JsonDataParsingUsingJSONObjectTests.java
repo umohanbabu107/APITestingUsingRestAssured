@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import java.util.Set;
 import static io.restassured.RestAssured.*;
 
-public class JsonDataParsingUsingJSONObject {
+public class JsonDataParsingUsingJSONObjectTests {
     String url =  "http://localhost:3002/books?id=1";
     @Test
     public void getBookAuthor(){

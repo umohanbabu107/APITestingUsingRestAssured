@@ -10,7 +10,7 @@ import java.util.Set;
 
 import static io.restassured.RestAssured.*;
 
-public class JSONDataParsing {
+public class JSONDataParsingTests {
     @Test
     public void validateJsonBody(){
         Response response = when().get("http://localhost:3000/books");

@@ -12,7 +12,7 @@ import java.util.HashMap;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-public class PostRequests {
+public class PostRequestsTests {
     String url = "http://localhost:3001/students";
     // Send body using HashMap
     @Test

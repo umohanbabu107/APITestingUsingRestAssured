@@ -7,10 +7,8 @@ import java.util.Map;
 import java.util.Set;
 
 import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
-import static org.hamcrest.Matchers.*;
 
-public class CookiesDemo {
+public class CookiesDemoTests {
     @Test
     public void verifyCookies(){
         when()
