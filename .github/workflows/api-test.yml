@@ -15,6 +15,7 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
+          distribution: 'temurin' # Choose your desired distribution, e.g., 'adopt', 'temurin', 'zulu'
           java-version: '17'
 
       - name: Install Maven
