@@ -15,6 +15,7 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
+          distribution: 'temurin' # Choose your desired distribution, e.g., 'adopt', 'temurin', 'zulu'
           java-version: '17'
 
       - name: Install Maven
@@ -28,13 +29,13 @@ jobs:
       - name: Generate Simple Report
         run: |
           mvn surefire-report:report
-          echo "Test Report generated at target/site/surefire-report.html"
+          echo "Test Report generated at /home/runner/work/APITestingUsingRestAssured/APITestingUsingRestAssured/target/surefire-reports"
 
       - name: Upload Test Report as Artifact
         uses: actions/upload-artifact@v3
         with:
           name: Test-Report
-          path: target/site/surefire-report.html
+          path: /home/runner/work/APITestingUsingRestAssured/APITestingUsingRestAssured/target/surefire-reports
 
       - name: Display Report in Console
-        run: cat target/site/surefire-report.html
+        run: cat /home/runner/work/APITestingUsingRestAssured/APITestingUsingRestAssured/target/surefire-reports/*.txt
