@@ -72,7 +72,7 @@
         <configuration>
           <!-- If your test classes are in a different directory -->
           <includes>
-            <include>**/org.example/*.java</include>
+            <include>**/sampleTests/*.java</include>
           </includes>
         </configuration>
       </plugin>
