@@ -26,19 +26,19 @@ jobs:
         env:
           MAVEN_OPTS: -Djunit.jupiter.execution.parallel.enabled=true
 
-      - name: Generate Surefire Report
-        run: |
-          mvn surefire-report:report
-          echo "Test Report generated at $(pwd)/target/site"
+      - name: Generate HTML Report
+        run: mvn site
+        env:
+          MAVEN_OPTS: -Djunit.jupiter.execution.parallel.enabled=true
 
       - name: List Target Directory
         run: ls -R $(pwd)/target
 
-      - name: Upload Test Report as Artifact
+      - name: Upload HTML Report as Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: Test-Report
+          name: HTML-Report
           path: target/site
 
       - name: Display Report in Console
-        run: cat $(pwd)/target/surefire-reports/*.txt
+        run: cat $(pwd)/target/site/*.html
