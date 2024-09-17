@@ -22,23 +22,26 @@ jobs:
         run: sudo apt-get install -y maven
 
       - name: Run Tests in Parallel
+        id: run-tests
         run: mvn clean test -T 1C
         env:
           MAVEN_OPTS: -Djunit.jupiter.execution.parallel.enabled=true
 
       - name: Generate HTML Report
+        if: always()
         run: mvn site
-        env:
-          MAVEN_OPTS: -Djunit.jupiter.execution.parallel.enabled=true
 
       - name: List Target Directory
+        if: always()
         run: ls -R $(pwd)/target
 
       - name: Upload HTML Report as Artifact
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: HTML-Report
           path: target/site
 
       - name: Display Report in Console
-        run: cat $(pwd)/target/site/*.html
+        if: always()
+        run: cat $(pwd)/target/site/index.html
