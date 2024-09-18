@@ -30,15 +30,27 @@ jobs:
 
       - name: Install Maven dependencies
         run: mvn install -DskipTests
-        continue-on-error: true
 
       - name: Run tests with sampleTests profile
-        run: mvn test -P sampleTests -Dmaven.test.failure.ignore=false
-
-        continue-on-error: true
+        run: mvn test -P sampleTests
 
       - name: Archive Test Report
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: test-report
           path: target/surefire-reports
+
+      - name: Send email with test report
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Maven Test Results
+          body: Please find the attached test report.
+          to: umohanbabu107@gmail.com
+          from: umohanbabu107@gmail.com
+          attachments: target/surefire-reports/emailable-report.html
+
