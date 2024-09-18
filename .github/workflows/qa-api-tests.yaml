@@ -1,9 +1,9 @@
 name: qa-api-tests
 
 on:
-  push:
-    branches:
-      - qa
+  schedule:
+    - cron : '30 14 * * 3'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -42,6 +42,7 @@ jobs:
           path: target/surefire-reports
 
       - name: Send email with test report
+        if: always()
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
