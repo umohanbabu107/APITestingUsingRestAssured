@@ -13,7 +13,10 @@ public class SampleAPITests {
     }
 
     // 15 Passing Test Cases
-
+    @Test
+    public void qaTests(){
+        System.out.println("These tests are from QA");
+    }
     @Test
     public void getUsers_ValidStatusCode() {
         RestAssured.get("/users?page=2")
