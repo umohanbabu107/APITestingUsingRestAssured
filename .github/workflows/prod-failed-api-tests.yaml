@@ -1,4 +1,4 @@
-name : prod-api-tests
+name : prod-failed-api-tests
 on:
   schedule:
     - cron : '30 10 * * 3'
