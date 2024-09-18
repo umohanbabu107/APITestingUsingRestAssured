@@ -1,7 +1,9 @@
 name: Maven Test
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - qa
 
 jobs:
   build:
