@@ -1,4 +1,4 @@
-name : prod-passed-api-tests
+name : entry-check-api-tests
 on:
   schedule:
     - cron : '30 10 * * 3'
