@@ -5,15 +5,16 @@ import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
 import static org.hamcrest.Matchers.*;
 
-public class SampleAPITests {
+public class SampleAPIFailedTests {
 
-    // Base URL for all tests
+
     static {
         RestAssured.baseURI = "https://reqres.in/api";
     }
-
-    // 15 Passing Test Cases
-
+    @Test
+    public void prodTests(){
+        System.out.println("Prod tests");
+    }
     @Test
     public void getUsers_ValidStatusCode() {
         RestAssured.get("/users?page=2")
@@ -135,7 +136,7 @@ public class SampleAPITests {
                 .body(requestBody)
                 .post("/users")
                 .then()
-                .statusCode(201)
+                .statusCode(200)
                 .body("name", equalTo("Jane"))
                 .body("job", nullValue());
     }
@@ -213,6 +214,6 @@ public class SampleAPITests {
     public void deleteUser_InvalidId_ShouldFail() {
         RestAssured.delete("/users/999")
                 .then()
-                .statusCode(204);  // This will fail as it should return 404 for non-existing user
+                .statusCode(200);  // This will fail as it should return 404 for non-existing user
     }
 }
