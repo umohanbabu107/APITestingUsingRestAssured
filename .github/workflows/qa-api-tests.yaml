@@ -36,11 +36,6 @@ jobs:
         run: mvn test -P sampleTests
         continue-on-error: true
 
-      - name: Generate and List Reports
-        run: |
-            mvn surefire-report:report
-            ls -l target/site/
-
       - name: Archive Test Report
         uses: actions/upload-artifact@v3
         with:
