@@ -33,11 +33,12 @@ jobs:
         continue-on-error: true
 
       - name: Run tests with sampleTests profile
-        run: mvn test -P sampleTests
+        run: mvn test -P sampleTests -Dmaven.test.failure.ignore=false
+
         continue-on-error: true
 
       - name: Archive Test Report
         uses: actions/upload-artifact@v3
         with:
           name: test-report
-          path: target/site/surefire-report.html
+          path: target/surefire-report.html/
