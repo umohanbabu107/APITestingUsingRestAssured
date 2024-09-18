@@ -36,35 +36,13 @@ jobs:
         run: mvn test -P sampleTests
         continue-on-error: true
 
-      - name: Generate Test Report
-        run: mvn surefire-report:report-only
-        continue-on-error: true
-
-      - name: Install xsltproc
-        run: sudo apt-get install xsltproc
-        continue-on-error: true
-
-      - name: Convert XML to HTML
-        run: xsltproc /path/to/stylesheet.xsl target/site/surefire-report.html target/surefire-reports/*.xml
-        continue-on-error: true
+      - name: Generate and List Reports
+        run: |
+            mvn surefire-report:report
+            ls -l target/site/
 
       - name: Archive Test Report
         uses: actions/upload-artifact@v3
         with:
           name: test-report
           path: target/site/surefire-report.html
-        continue-on-error: true
-
-      - name: Send email with test report
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: Maven Test Results
-          body: Please find the attached test report.
-          to: recipient@example.com
-          from: sender@example.com
-          content_type: text/html
-          attachments: target/site/surefire-report.html

@@ -90,10 +90,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.3.1</version> <!-- Ensure this is the latest version -->
         <configuration>
-          <!-- If your test classes are in a different directory -->
-          <includes>
-            <include>**/sampleTests/*.java</include>
-          </includes>
+          <argLine>-Dfile.encoding=UTF-8</argLine>
         </configuration>
       </plugin>
       <plugin>
@@ -104,6 +101,22 @@
                 <source>17</source>
                 <target>17</target>
             </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>3.5.0</version>
+        <configuration>
+          <linkXRef>false</linkXRef>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
