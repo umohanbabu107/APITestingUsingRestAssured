@@ -50,7 +50,7 @@ jobs:
           path: target/surefire-reports
 
       - name: Send email with failed test report
-        if: failure
+        if: failure()
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -61,12 +61,12 @@ jobs:
           body: |
               The tests have failed. Please find the attached test report for details.
               You can view the workflow run here: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          to: umohanbabu107@gmail.com
-          from: umohanbabu107@gmail.com
+          to: ${{ secrets.EMAIL_RECIPIENTS }}
+          from: ${{ secrets.MY_EMAIL }}
           attachments: target/surefire-reports/emailable-report.html
 
       - name: Send email with passed test report
-        if: success
+        if: success()
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -77,6 +77,6 @@ jobs:
           body: |
             All tests have passed successfully. Please find the attached test report for details.
             You can view the workflow run here: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          to: umohanbabu107@gmail.com
-          from: umohanbabu107@gmail.com
+          to: ${{ secrets.EMAIL_RECIPIENTS }}
+          from: ${{ secrets.MY_EMAIL }}
           attachments: target/surefire-reports/emailable-report.html
