@@ -1,7 +1,7 @@
 name : entry-check-api-tests
 on:
   schedule:
-    - cron : '30 10 * * 3'
+    - cron : '*/30 * * * *' #this will run for every 30 min
   workflow_dispatch:
 
 jobs:
@@ -9,6 +9,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Capture Timestamp
+        id: capture-timestamp
+        run: |
+            TIMESTAMP=$(date +'%d%m%Y_%H%M%S')
+            echo "timestamp=$TIMESTAMP" >> $GITHUB_ENV
+
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -40,7 +46,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: test-report
+          name: test-report-${{ env.timestamp }}
           path: target/surefire-reports
 
       - name: Send email with test report
@@ -51,7 +57,7 @@ jobs:
           server_port: 587
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: Maven Test Results
+          subject: Entry Check API Test results - ${{ env.timestamp }}
           body: Please find the attached test report.
           to: umohanbabu107@gmail.com
           from: umohanbabu107@gmail.com
