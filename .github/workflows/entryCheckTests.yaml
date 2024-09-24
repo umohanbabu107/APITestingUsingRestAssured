@@ -44,10 +44,19 @@ jobs:
 
       - name: Archive Test Report
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-report-${{ env.timestamp }}
           path: target/entryCheckReports
+
+      - name: Create and Archive Test Report
+        if: always()
+        run: |
+            # Create the reports directory if it doesn't exist
+            mkdir -p target/reports
+            
+            # Zip the reports directory
+            zip -r target/reports/entryCheckReports_${{ env.timestamp }}.zip target/entryCheckReports/*
 
       - name: Send email with failed test report
         if: failure()
