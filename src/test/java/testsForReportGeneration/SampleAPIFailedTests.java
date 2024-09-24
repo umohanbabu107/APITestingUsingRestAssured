@@ -1,12 +1,11 @@
-package sampleTests;
+package testsForReportGeneration;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
-
 import static org.hamcrest.Matchers.*;
 
-public class SampleAPIPassedTests {
+public class SampleAPIFailedTests {
 
 
     static {
@@ -137,7 +136,7 @@ public class SampleAPIPassedTests {
                 .body(requestBody)
                 .post("/users")
                 .then()
-                .statusCode(201)
+                .statusCode(200)
                 .body("name", equalTo("Jane"))
                 .body("job", nullValue());
     }
@@ -168,5 +167,53 @@ public class SampleAPIPassedTests {
         RestAssured.delete("/users/999")
                 .then()
                 .statusCode(204);  // Simulating pass with wrong logic but in real life would fail.
+    }
+
+    // 5 Failing Test Cases
+
+    @Test
+    public void getUsers_InvalidStatusCode_ShouldFail() {
+        RestAssured.get("/users?page=2")
+                .then()
+                .statusCode(400);  // Expected status code is incorrect, should be 200
+    }
+
+    @Test
+    public void getUserById_InvalidData_ShouldFail() {
+        RestAssured.get("/users/23")
+                .then()
+                .statusCode(200);  // User ID 23 does not exist, should return 404
+    }
+
+    @Test
+    public void createUser_MissingJobField_ShouldFail() {
+        String requestBody = "{\"name\": \"John\"}";
+
+        RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(requestBody)
+                .post("/users")
+                .then()
+                .statusCode(201)
+                .body("job", equalTo("Engineer"));  // Job field is missing, so this will fail
+    }
+
+    @Test
+    public void updateUserWithInvalidId_ShouldFail() {
+        String requestBody = "{\"name\": \"John\", \"job\": \"Manager\"}";
+
+        RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(requestBody)
+                .put("/users/999")  // User with ID 999 does not exist
+                .then()
+                .statusCode(200);  // Should return 404, not 200
+    }
+
+    @Test
+    public void deleteUser_InvalidId_ShouldFail() {
+        RestAssured.delete("/users/999")
+                .then()
+                .statusCode(200);  // This will fail as it should return 404 for non-existing user
     }
 }

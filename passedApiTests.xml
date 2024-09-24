@@ -4,7 +4,7 @@
     <test verbose="2" preserve-order="true"
           name="C:/Users/umoha/IdeaProjects/APITestingUsingRestAssured/src/test/java/sampleTests/SampleAPIPassedTests.java">
         <classes>
-            <class name="sampleTests.SampleAPIPassedTests"> </class>
+            <class name="testsForReportGeneration.SampleAPIPassedTests"> </class>
         </classes>
     </test>
 </suite>

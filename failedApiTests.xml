@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true"
-          name="C:/Users/umoha/IdeaProjects/APITestingUsingRestAssured/src/test/java/sampleTests/SampleAPITests.java">
+<suite name="Api failed tests">
+    <listeners>
+        <listener class-name="utils.ReportManager"/>
+    </listeners>
+    <test thread-count="5" name = "test">
         <classes>
-            <class name="sampleTests.SampleAPIFailedTests"> </class>
+            <class name="testsForReportGeneration.SampleAPIFailedTests"> </class>
+            <class name="testsForReportGeneration.SampleAPIPassedTests"></class>
         </classes>
     </test>
 </suite>

@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: test-report-${{ env.timestamp }}
-          path: target/surefire-reports
+          path: entryCheckReports
 
       - name: Send email with failed test report
         if: failure()
@@ -63,7 +63,7 @@ jobs:
               You can view the workflow run here: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           to: ${{ secrets.EMAIL_RECIPIENTS }}
           from: ${{ secrets.MY_EMAIL }}
-          attachments: target/surefire-reports/emailable-report.html
+          attachments: target/entryCheckReports
 
       - name: Send email with passed test report
         if: success()
@@ -79,4 +79,4 @@ jobs:
             You can view the workflow run here: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           to: ${{ secrets.EMAIL_RECIPIENTS }}
           from: ${{ secrets.MY_EMAIL }}
-          attachments: target/surefire-reports/emailable-report.html
+          attachments: target/entryCheckReports
