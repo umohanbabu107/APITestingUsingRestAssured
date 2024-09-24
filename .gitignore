@@ -1,5 +1,7 @@
 # Default ignored files
 /shelf/
-/.idea/workspace.xml
-entryCheckReports/
-extentReports/
+/.idea
+/entryCheckReports/
+/extentReports/
+/target/
+/APITestingUsingRestAssured.iml
