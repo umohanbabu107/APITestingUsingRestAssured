@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: test-report-${{ env.timestamp }}
-          path: entryCheckReports
+          path: target/entryCheckReports
 
       - name: Send email with failed test report
         if: failure()
