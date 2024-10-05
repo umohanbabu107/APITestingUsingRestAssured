@@ -26,7 +26,7 @@ public class ReportManager implements ITestListener {
         final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
         final ZonedDateTime time = ZonedDateTime.now(ZoneId.of("Asia/Kolkata"));
         final String timestamp = time.format(formatter);
-        this.sparkReporter = new ExtentSparkReporter(Paths.get("target/emailableReport/report_"+timestamp+".html").toString());
+        this.sparkReporter = new ExtentSparkReporter(Paths.get("extentReports/report_"+timestamp+".html").toString());
         this.sparkReporter.config().setDocumentTitle("Helios API Tests Reports");
         this.sparkReporter.config().setReportName("API Tests results");
         this.sparkReporter.config().setTheme(Theme.DARK);

@@ -1,0 +1,18 @@
+2024-09-25 15:34:04 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\umoha\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml
+
+2024-09-25 15:34:04 INFO  SampleTests:17 -  test1_Pass is started 
+2024-09-25 15:34:04 INFO  SampleTests:19 -  test1_Pass is finished 
+2024-09-25 15:34:56 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\umoha\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml
+
+2024-09-25 15:34:56 INFO  SampleTests:17 -  test1_Pass is started 
+2024-09-25 15:34:56 INFO  SampleTests:19 -  test1_Pass is finished 
+2024-09-25 15:35:53 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\umoha\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml
+
+2024-09-25 15:35:53 INFO  SampleTests:17 -  test1_Pass is started 
+2024-09-25 15:35:53 INFO  SampleTests:19 -  test1_Pass is finished 
+2024-10-03 00:32:41 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\umoha\IdeaProjects\APITestingUsingRestAssured\testng.xml
+
