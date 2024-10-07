@@ -5,6 +5,8 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -20,9 +22,12 @@ public class ReportManager implements ITestListener {
     public ExtentSparkReporter sparkReporter; // This is used to configure the UI
     public ExtentReports extentReports; // Populate common info on report
     public ExtentTest test; // Creating test case entries in the report and update the status of test methods
+    public Logger logger;
 
     @Override
     public void onStart(final ITestContext context){
+        this.logger = LogManager.getLogger(ReportManager.class);
+        this.logger.info(context.getName()+" test suite execution has started");
         final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
         final ZonedDateTime time = ZonedDateTime.now(ZoneId.of("Asia/Kolkata"));
         final String timestamp = time.format(formatter);
@@ -39,15 +44,18 @@ public class ReportManager implements ITestListener {
     }
     @Override
     public void onTestStart(final ITestResult result){
+        this.logger.info(result.getName()+" test started");
         this.test = this.extentReports.createTest(result.getName());
     }
     @Override
     public void onTestSuccess(final ITestResult result){
+        this.logger.info(result.getName()+" test passed");
         // This will create a test in the report
         this.test.log(Status.PASS, "Testcase passed is "+result.getName());
     }
     @Override
     public void onTestFailure(final ITestResult result){
+        this.logger.info(result.getName()+" test failed");
         test.log(Status.FAIL, "Test failed "+result.getName());
         test.log(Status.FAIL, "Error:"+result.getThrowable().getMessage());
         StringWriter sw = new StringWriter();
@@ -59,11 +67,13 @@ public class ReportManager implements ITestListener {
     }
     @Override
     public void onTestSkipped(final ITestResult result){
+        this.logger.info(result.getName()+" test skipped");
         this.test.log(Status.SKIP, "Testcase skipped is "+result.getName());
 
     }
     @Override
     public void onFinish(final ITestContext context){
         this.extentReports.flush();
+        this.logger.info(context.getName()+" test suite execution has completed");
     }
 }
